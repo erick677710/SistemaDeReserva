@@ -1,4 +1,4 @@
-# SistemaDeReserva
+# Sistema De Reserva
 repositorio del un sistema de reserva para minimarkets
 
 
