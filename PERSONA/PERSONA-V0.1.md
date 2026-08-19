@@ -17,30 +17,21 @@ Necesidad: Garantizar que los productos que busca estén disponibles en el local
      │         │                 │     │          │
  Registrarse Iniciar          Inicio Reservas   Perfil
               sesión            │       │          │
-                                │       │          ├─ Datos personales
-                                │       │          ├─ Historial
-                                │       │          └─ Cerrar sesión
+                                │       │          └─ Datos personales
+                                │       │        
+                                │       │         
                                 │       │
-                                │       ├─ Mis reservas
-                                │       │    ├─ Pendientes
-                                │       │    ├─ Confirmadas
-                                │       │    ├─ Completadas
-                                │       │    └─ Canceladas
-                                │       │
-                                │       └─ Detalle de reserva
+                                │       └─ Mis reservas  
+                                │           └─ Detalle de reserva
                                 │
-                                ├─ Buscar minimarket
-                                │    │
-                                │    └─ Detalle minimarket
-                                │         ├─ Información
-                                │         ├─ Productos
-                                │         ├─ Horarios
-                                │         └─ Reservar
-                                │
-                                └─ Notificaciones
-                                     ├─ Reserva confirmada
-                                     ├─ Reserva rechazada
-                                     └─ Reserva lista
+                                └─ Buscar minimarket
+                                     │
+                                     └─ Detalle minimarket
+                                          ├─ Información
+                                          ├─ Productos
+                                          ├─ Horarios
+                                          └─ Reservar
+                                
 # Flujo
 Cliente
   ↓
