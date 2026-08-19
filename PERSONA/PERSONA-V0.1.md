@@ -6,9 +6,42 @@ Dificultal:
 Necesidad:
 
 
-
-
-flujo
+# app map
+                    APLICACIÓN
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+       AUTENTICACIÓN                 CLIENTE
+          │                             │
+     ┌────┴────┐                 ┌─────┼──────────┐
+     │         │                 │     │          │
+ Registrarse Iniciar          Inicio Reservas   Perfil
+              sesión            │       │          │
+                                │       │          ├─ Datos personales
+                                │       │          ├─ Historial
+                                │       │          └─ Cerrar sesión
+                                │       │
+                                │       ├─ Mis reservas
+                                │       │    ├─ Pendientes
+                                │       │    ├─ Confirmadas
+                                │       │    ├─ Completadas
+                                │       │    └─ Canceladas
+                                │       │
+                                │       └─ Detalle de reserva
+                                │
+                                ├─ Buscar minimarket
+                                │    │
+                                │    └─ Detalle minimarket
+                                │         ├─ Información
+                                │         ├─ Productos
+                                │         ├─ Horarios
+                                │         └─ Reservar
+                                │
+                                └─ Notificaciones
+                                     ├─ Reserva confirmada
+                                     ├─ Reserva rechazada
+                                     └─ Reserva lista
+# Flujo
 Cliente
   ↓
 Inicia sesión
