@@ -9,28 +9,28 @@ Necesidad: Garantizar que los productos que busca estén disponibles en el local
 # app map
                     APLICACIÓN
                          │
-          ┌──────────────┴──────────────┐
-          │                             │
-       AUTENTICACIÓN                 CLIENTE
-          │                             │
-     ┌────┴────┐                 ┌─────┼──────────┐
-     │         │                 │     │          │
- Registrarse Iniciar          Inicio Reservas   Perfil
-              sesión            │       │          │
-                                │       │          └─ Datos personales
-                                │       │        
-                                │       │         
-                                │       │
-                                │       └─ Mis reservas  
-                                │           └─ Detalle de reserva
-                                │
-                                └─ Buscar minimarket
-                                     │
-                                     └─ Detalle minimarket
-                                          ├─ Información
-                                          ├─ Productos
-                                          ├─ Horarios
-                                          └─ Reservar
+          ┌──────────────┴──────────────────────┐
+          │                                     │
+       AUTENTICACIÓN                         CLIENTE
+          │                                     │
+     ┌────┴────────┐                      ┌─────┼──────────┐
+     │             │                      │     │          │
+    Registrarse  Iniciar sesión        Inicio Reservas   Perfil
+                                        │       │          │
+                                        │       │          └─ Datos personales
+                                        │       │        
+                                        │       │         
+                                        │       │
+                                        │       └─ Mis reservas  
+                                        │           └─ Detalle de reserva
+                                        │
+                                        └─ Buscar minimarket
+                                            │
+                                            └─ Detalle minimarket
+                                               ├─ Información
+                                               ├─ Productos
+                                               ├─ Horarios
+                                               └─ Reservar
                                 
 # Flujo
 Cliente
