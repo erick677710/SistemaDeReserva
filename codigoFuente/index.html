@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Minimarket</title>
+</head>
+
+<body>
+
+    <h1>Realizar pedido</h1>
+
+    <h2>1. Selecciona un minimarket</h2>
+
+    <select id="Minimarket">
+        <option value="">-- Selecciona un minimarket --</option>
+    </select>
+
+    <h2>2. Selecciona un producto</h2>
+
+    <select id="Producto">
+        <option value="">-- Selecciona primero un minimarket --</option>
+    </select>
+
+    <h2>3. Cantidad</h2>
+
+    <input
+        type="number"
+        id="Cantidad"
+        min="1"
+        value="1"
+    >
+
+    <button id="Agregar">
+        Agregar al pedido
+    </button>
+
+    <h2>Mi pedido</h2>
+
+    <p id="Mensaje"></p>
+
+    <button id="Whatsapp">
+        Enviar pedido por WhatsApp
+    </button>
+
+
+    <!-- no toques esta linea lo todo se va ir al demonio -->
+    <script src="script.js"></script>
+
+</body>
+</html>
