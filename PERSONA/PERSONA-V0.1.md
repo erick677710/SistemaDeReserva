@@ -7,35 +7,31 @@ Necesidad: Garantizar que los productos que busca estén disponibles en el local
 
 
 # app map
-APLICACIÓN
-│
-├── AUTENTICACIÓN
-│   │
-│   ├── Registrarse
-│   │
-│   └── Iniciar sesión
-│
-└── CLIENTE
-    │
-    ├── INICIO
-    │   │
-    │   └── Buscar minimarket
-    │       │
-    │       └── Detalle minimarket
-    │           ├── Información
-    │           ├── Productos
-    │           ├── Horarios
-    │           └── Reservar
-    │
-    ├── RESERVAS
-    │   │
-    │   └── Mis reservas
-    │       │
-    │       └── Detalle de reserva
-    │
-    └── PERFIL
-        │
-        └── Datos personales
+                    APLICACIÓN
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+       AUTENTICACIÓN                 CLIENTE
+          │                             │
+     ┌────┴────┐                 ┌─────┼──────────┐
+     │         │                 │     │          │
+ Registrarse Iniciar          Inicio Reservas   Perfil
+              sesión            │       │          │
+                                │       │          └─ Datos personales
+                                │       │        
+                                │       │         
+                                │       │
+                                │       └─ Mis reservas  
+                                │           └─ Detalle de reserva
+                                │
+                                └─ Buscar minimarket
+                                     │
+                                     └─ Detalle minimarket
+                                          ├─ Información
+                                          ├─ Productos
+                                          ├─ Horarios
+                                          └─ Reservar
+                                
 # Flujo
 Cliente
   ↓
