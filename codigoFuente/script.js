@@ -2,6 +2,7 @@ const minimarkets = [
     {
         id: 1,
         nombre: "Minimarket Central",
+        horario: "Lunes a Domingo 8:00 a 22:00",
         productos: [
             {
                 id: 1,
@@ -24,6 +25,7 @@ const minimarkets = [
     {
         id: 2,
         nombre: "Minimarket La Plaza",
+        horario: "Lunes a Sábado 8:00 a 22:00",
         productos: [
             {
                 id: 5,
@@ -46,6 +48,7 @@ const minimarkets = [
     {
         id: 3,
         nombre: "Minimarket Norte",
+        horario: "Lunes a Sábado 8:00 a 22:00",
         productos: [
             {
                 id: 9,
@@ -99,6 +102,8 @@ selectorMinimarket.addEventListener("change", function() {
         minimarkets.find(function(minimarket) {
             return minimarket.id === idMinimarket;
         });
+        alert("🕐Horario de atención de " + minimarketSeleccionado.nombre + "\n\" + minimarketSeleccionado.horario
+        );
 
     minimarketSeleccionado.productos.forEach(function(producto) {
 
