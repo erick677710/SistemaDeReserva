@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Seleccionar Minimarket</title>
+</head>
+
+<body>
+
+    <h1>Seleccionar Minimarket</h1>
+
+    <label for="minimarket">
+        Minimarket:
+    </label>
+
+    <select id="minimarket">
+
+        <option value="">
+            -- Selecciona un minimarket --
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button id="seleccionar">
+        Continuar
+    </button>
+
+    <br><br>
+
+    <button onclick="window.location.href='/cliente'">
+        Volver
+    </button>
+
+    <p id="mensaje"></p>
+
+
+    <script src="{{ url_for('static', filename='minimarket.js') }}">
+    </script>
+
+</body>
+
+</html>

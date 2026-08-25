@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Seleccionar Productos</title>
+</head>
+
+<body>
+
+    <h1>Realizar Reserva</h1>
+
+
+    <h2 id="nombreMinimarket">
+        Cargando minimarket...
+    </h2>
+
+
+    <label for="producto">
+        Producto:
+    </label>
+
+    <select id="producto">
+
+        <option value="">
+            -- Selecciona un producto --
+        </option>
+
+    </select>
+
+
+    <br><br>
+
+
+    <label for="cantidad">
+        Cantidad:
+    </label>
+
+    <input
+        type="number"
+        id="cantidad"
+        min="1"
+        value="1"
+    >
+
+
+    <br><br>
+
+
+    <button id="agregar">
+        Agregar producto
+    </button>
+
+
+    <h2>Mi reserva</h2>
+
+    <pre id="pedido">
+Todavía no hay productos.
+    </pre>
+
+
+    <br>
+
+
+    <button id="reservar">
+        Confirmar reserva
+    </button>
+
+
+    <br><br>
+
+
+    <button
+        onclick="window.location.href='/seleccionar-minimarket'"
+    >
+        Cambiar minimarket
+    </button>
+
+
+    <p id="mensaje"></p>
+
+
+    <script src="{{ url_for('static', filename='productos.js') }}">
+    </script>
+
+</body>
+
+</html>
