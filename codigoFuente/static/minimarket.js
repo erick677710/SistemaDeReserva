@@ -40,12 +40,7 @@ async function cargarMinimarkets() {
 
 
 cargarMinimarkets();
-
-
-// ========================================
-// SELECCIONAR MINIMARKET
-// ========================================
-
+// seleccionar minimarket
 boton.addEventListener(
     "click",
     function() {
