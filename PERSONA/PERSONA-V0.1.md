@@ -35,8 +35,6 @@ flowchart TD
 
     D1 --> D4[Añadir productos]
     D1 --> D5[Eliminar productos]
-
-    D2 --> D6[Confirmar reservas]
 ```
 
 ## Descripción del flujo
@@ -71,6 +69,3 @@ Sus principales funciones son:
 * **Eliminar productos** del minimarket.
 * **Ver las reservas pendientes de confirmación.**
 * **Cerrar sesión.**
-
-```
-```
