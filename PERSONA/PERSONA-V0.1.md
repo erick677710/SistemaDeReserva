@@ -7,8 +7,6 @@ Necesidad: Garantizar que los productos que busca estén disponibles en el local
 
 
 # app map
-# Flujo de la aplicación
-
 ```mermaid
 flowchart TD
     A[Aplicación] --> B[Inicio de sesión]
@@ -72,40 +70,7 @@ Sus principales funciones son:
 * **Añadir productos** al minimarket.
 * **Eliminar productos** del minimarket.
 * **Ver las reservas pendientes de confirmación.**
-* **Confirmar reservas.**
 * **Cerrar sesión.**
 
 ```
 ```
-
-# Flujo
-Cliente
-  ↓
-Inicia sesión
-  ↓
-Busca minimarket
-  ↓
-Selecciona minimarket
-  ↓
-Consulta productos
-  ↓
-Selecciona productos
-  ↓
-Elige fecha/hora para recoger
-  ↓
-Confirma reserva
-  ↓
-Minimarket recibe solicitud
-  ↓
-¿Acepta la reserva?
- ├── NO → Notificar al cliente → FIN
- │
- └── SÍ
-       ↓
-   Preparar pedido
-       ↓
-   Cliente recibe notificación
-       ↓
-   Cliente recoge pedido
-       ↓
-   Reserva completada
