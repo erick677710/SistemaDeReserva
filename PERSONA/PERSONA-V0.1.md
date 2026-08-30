@@ -69,3 +69,34 @@ Sus principales funciones son:
 * **Eliminar productos** del minimarket.
 * **Ver las reservas pendientes de confirmación.**
 * **Cerrar sesión.**
+# MVP
+```
+                    SISTEMA DE RESERVAS
+                            │
+                    ┌───────┴───────┐
+                    │               │
+                 CLIENTE         DEPENDIENTE
+                    │               │
+              ┌─────┴─────┐    ┌────┴──────────┐
+              │           │    │               │
+          Iniciar      Crear   Gestionar     Gestionar
+           sesión     reserva  productos      reservas
+              │           │       │               │
+              │           │       ├─ Añadir       ├─ Ver
+              │           │       │  producto     │  reservas
+              │           │       │               │
+              │           │       └─ Eliminar     └─ Confirmar
+              │           │          producto       reserva
+              │           │
+              │       Seleccionar
+              │       minimarket
+              │           │
+              │       Ver productos
+              │           │
+              │       Seleccionar
+              │        productos
+              │           │
+              │       Crear reserva
+              │
+           Cerrar sesión
+```
