@@ -70,6 +70,17 @@ Sus principales funciones son:
 * **Ver las reservas pendientes de confirmación.**
 * **Cerrar sesión.**
 # MVP
+
+El Producto Mínimo Viable del sistema es desarrollar una versión funcional que permita realizar el proceso básico de reserva de productos en un minimarket.
+
+El sistema tendra dos tipos de usuarios: **Cliente** y **Dependiente**.
+
+El **Cliente** podrá iniciar sesión, seleccionar un minimarket, consultar los productos disponibles, seleccionar los productos que desea y crear una reserva. Una vez creada, la reserva quedará registrada y se enviara un mensaje al dependiente.
+
+El **Dependiente** podrá iniciar sesión, administrar los productos disponibles en su minimarket mediante las opciones de añadir y eliminar productos, además de consultar las reservas pendientes y confirmarlas.
+
+Flujo principal del sistema: **selección de minimarket → selección de productos → creación de reserva → revisión y confirmación por parte del dependiente**.
+
 ```
                     SISTEMA DE RESERVAS
                             │
@@ -77,17 +88,18 @@ Sus principales funciones son:
                     │               │
                  CLIENTE         DEPENDIENTE
                     │               │
-              ┌─────┴─────┐    ┌────┴──────────┐
-              │           │    │               │
-          Iniciar      Crear   Gestionar     Gestionar
-           sesión     reserva  productos      reservas
-              │           │       │               │
-              │           │       ├─ Añadir       ├─ Ver
-              │           │       │  producto     │  reservas
-              │           │       │               │
-              │           │       └─ Eliminar     └─ Confirmar
-              │           │          producto       reserva
-              │           │
+              ┌─────┴─────┐    ┌────┴
+              │           │    │              
+          Iniciar      Crear   Gestionar     
+           sesión     reserva  productos     
+              │           │       │            
+              │           │       ├─ Añadir       
+              │           │       │  producto    
+              │           │       ├─ Ver              
+              │           │       │  reservas
+              |           |       |
+              │           │       └─ Eliminar 
+              │           │          producto
               │       Seleccionar
               │       minimarket
               │           │
