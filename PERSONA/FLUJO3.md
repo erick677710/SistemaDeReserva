@@ -71,10 +71,12 @@ La aplicación comienza en la pantalla de **Inicio de sesión**. Una vez que el 
 
 Al ingresar como **Cliente**, se muestra la pantalla de **Inicio**. Desde allí, el cliente puede:
 
-* **Crear una reserva.**
-* **Cerrar sesión.**
+* **Buscar un minimarket**
+* **Ver tus datos**
+* **Ver tus reservas**
+* **Cerrar sesión**
 
-Al seleccionar **Crear reserva**, el cliente puede volver a la página anterior o seleccionar un **minimarket**.
+Al seleccionar **Buscar minimatket* se muestra los minimarkets disponibles
 
 Después de seleccionar un minimarket, se abre una página donde el cliente puede:
 
@@ -83,6 +85,9 @@ Después de seleccionar un minimarket, se abre una página donde el cliente pued
 * **Enviar un mensaje al dependiente.**
 * Volver a la selección de minimarkets.
 
+Al seleccionar **Ver tus datos* se muestran los datos del usuario
+Al seleccionar **Ver tus reservas* se muestran las reservas del usuario
+Al seleccionar **Cerrar sesión* cierra sesion
 Una vez seleccionados los productos, el cliente puede **crear la reserva**. La reserva queda registrada y pasa a estar disponible para que el dependiente pueda revisarla.
 
 ### Dependiente
