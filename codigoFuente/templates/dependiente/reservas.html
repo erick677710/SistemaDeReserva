@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestionar reservas{% endblock %}
+
+{% block content %}
+<div class="page-head">
+    <div>
+        <p class="eyebrow">DEPENDIENTE</p>
+        <h1>Reservas</h1>
+    </div>
+
+    <form method="get" class="filter-form">
+        <select name="estado">
+            <option value="">Todos los estados</option>
+
+            {% for estado in estados %}
+                <option value="{{ estado }}" {% if filtro == estado %}selected{% endif %}>
+                    {{ estado }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button class="small" type="submit">Filtrar</button>
+    </form>
+</div>
+
+<section class="card table-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Cliente</th>
+                <th>Minimarket</th>
+                <th>Estado</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for reserva in reservas %}
+                <tr>
+                    <td>#{{ reserva.id }}</td>
+                    <td>{{ reserva.cliente }}</td>
+                    <td>{{ reserva.minimarket }}</td>
+                    <td>
+                        <span class="status">{{ reserva.estado }}</span>
+                    </td>
+                    <td>
+                        <a
+                            class="button small"
+                            href="{{ url_for('detalle_reserva_dependiente', reserva_id=reserva.id) }}"
+                        >
+                            Gestionar
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">No hay reservas.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

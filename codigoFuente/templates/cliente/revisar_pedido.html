@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Revisar pedido{% endblock %}
+
+{% block content %}
+<div class="page-head">
+    <div>
+        <p class="eyebrow">PASO 2</p>
+        <h1>Revisar pedido</h1>
+        <p>{{ minimarket.nombre }}</p>
+    </div>
+
+    <a
+        class="button secondary"
+        href="{{ url_for('minimarket_detalle', minimarket_id=minimarket.id) }}"
+    >
+        ← Modificar
+    </a>
+</div>
+
+<form method="post" action="{{ url_for('crear_reserva') }}">
+    <input type="hidden" name="minimarket_id" value="{{ minimarket.id }}">
+
+    <section class="card">
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>
+                                {{ item.nombre }}
+                                <input type="hidden" name="producto_id" value="{{ item.id }}">
+                            </td>
+                            <td>
+                                {{ item.cantidad }}
+                                <input type="hidden" name="cantidad" value="{{ item.cantidad }}">
+                            </td>
+                            <td>Bs {{ '%.2f'|format(item.precio) }}</td>
+                            <td>Bs {{ '%.2f'|format(item.subtotal) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total">
+            Total: Bs {{ '%.2f'|format(total) }}
+        </div>
+
+        <button type="submit">Confirmar y crear reserva</button>
+    </section>
+</form>
+{% endblock %}

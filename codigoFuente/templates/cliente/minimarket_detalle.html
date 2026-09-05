@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ minimarket.nombre }}{% endblock %}
+
+{% block content %}
+<div class="page-head">
+    <div>
+        <p class="eyebrow">MINIMARKET</p>
+        <h1>{{ minimarket.nombre }}</h1>
+        <p>{{ minimarket.direccion }} · {{ minimarket.horario }}</p>
+    </div>
+
+    <a class="button secondary" href="{{ url_for('minimarkets') }}">
+        ← Volver
+    </a>
+</div>
+
+<form
+    id="form-productos"
+    method="post"
+    action="{{ url_for('revisar_pedido') }}"
+>
+    <input type="hidden" name="minimarket_id" value="{{ minimarket.id }}">
+
+    <section class="card">
+        <h2>Productos</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for product in productos %}
+                        <tr>
+                            <td>{{ product.nombre }}</td>
+                            <td>Bs {{ '%.2f'|format(product.precio) }}</td>
+                            <td>{{ product.stock }}</td>
+                            <td>
+                                <input
+                                    class="qty cantidad-producto"
+                                    type="number"
+                                    name="cantidad"
+                                    min="0"
+                                    max="{{ product.stock }}"
+                                    value="0"
+                                >
+                                <input
+                                    type="hidden"
+                                    name="producto_id"
+                                    value="{{ product.id }}"
+                                >
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">No hay productos disponibles.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <button type="submit">Revisar pedido →</button>
+    </section>
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/cliente.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Mi perfil{% endblock %}
+
+{% block content %}
+<section class="card form-card">
+    <h1>Datos personales</h1>
+
+    <form method="post">
+        <label for="nombre">Nombre</label>
+        <input
+            id="nombre"
+            name="nombre"
+            value="{{ usuario.nombre }}"
+            required
+        >
+
+        <label for="email">Correo</label>
+        <input
+            id="email"
+            type="email"
+            name="email"
+            value="{{ usuario.email }}"
+            required
+        >
+
+        <label for="rol">Rol</label>
+        <input id="rol" value="{{ usuario.rol }}" disabled>
+
+        <button type="submit">Guardar cambios</button>
+    </form>
+</section>
+{% endblock %}

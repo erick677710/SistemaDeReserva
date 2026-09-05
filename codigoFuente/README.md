@@ -1,74 +1,84 @@
-# Sistema de Reserva - Flask + SQLite
+# Sistema de Reservas - versión organizada
 
-## Requisitos
+Aplicación educativa hecha con **Flask + SQLite + HTML + CSS + JavaScript**.
 
-- Python 3.10 o superior recomendado
-- pip
+## Idea de la organización
 
-## Instalar
+Los archivos HTML contienen principalmente la **estructura y el contenido de la página**.
 
-En la carpeta del proyecto:
+JavaScript contiene la **interactividad del navegador**, por ejemplo:
 
-```bash
-python -m venv venv
-```
+- Validaciones del formulario antes de enviarlo.
+- Confirmaciones antes de eliminar o cambiar estados.
+- Comprobaciones de selección de productos.
 
-Windows:
+Python/Flask sigue encargado de:
 
-```bash
-venv\Scripts\activate
-```
+- Login y sesiones.
+- Roles y permisos.
+- Validaciones de seguridad en el servidor.
+- Consultas y cambios en SQLite.
+- Creación y actualización de reservas.
+- Gestión de productos.
 
-Linux/macOS:
+> JavaScript no reemplaza las validaciones de Flask. El navegador puede ser manipulado, por lo que las reglas importantes también se comprueban en el servidor.
 
-```bash
-source venv/bin/activate
-```
+## Estructura
 
-Instalar dependencias:
-
-```bash
-pip install -r requirements.txt
+```text
+SistemaDeReservaCompleto/
+├── app.py
+├── requirements.txt
+├── README.md
+├── run.bat
+├── .gitignore
+├── templates/
+│   ├── base.html
+│   ├── login.html
+│   ├── registro.html
+│   ├── error.html
+│   ├── cliente/
+│   │   ├── inicio.html
+│   │   ├── minimarkets.html
+│   │   ├── minimarket_detalle.html
+│   │   ├── revisar_pedido.html
+│   │   ├── reserva_creada.html
+│   │   ├── reservas.html
+│   │   ├── detalle_reserva.html
+│   │   └── perfil.html
+│   └── dependiente/
+│       ├── panel.html
+│       ├── reservas.html
+│       ├── detalle_reserva.html
+│       └── productos.html
+└── static/
+    ├── styles.css
+    └── js/
+        ├── app.js
+        ├── cliente.js
+        └── dependiente.js
 ```
 
 ## Ejecutar
 
 ```bash
+python -m venv venv
+venv\\Scripts\\activate
+pip install -r requirements.txt
 python app.py
 ```
 
-Abrir:
+Luego abrir:
 
+```text
 http://127.0.0.1:5000
+```
 
-## Usuarios de prueba
+## Usuario dependiente de prueba
 
-Cliente:
+```text
+Correo: dependiente@demo.com
+Contraseña: 123456
+```
 
-- usuario: cliente
-- contraseña: 1234
-
-Dependiente:
-
-- usuario: dependiente
-- contraseña: 1234
-
-## Qué incluye
-
-- Login con roles cliente/dependiente.
-- Sesión en Flask.
-- Contraseñas almacenadas como hash.
-- SQLite.
-- Lista de minimarkets.
-- Productos por minimarket.
-- Cliente puede crear un pedido.
-- El pedido se guarda en la base de datos.
-- El pedido se puede enviar por WhatsApp.
-- Dependiente puede ver pedidos.
-- Dependiente puede agregar/eliminar productos.
-
-## Importante
-
-La clave `app.secret_key` de `app.py` es solo para desarrollo. En producción debe cambiarse y almacenarse como variable de entorno.
-
-Los datos iniciales se crean automáticamente en `sistema.db`.
+La base de datos `database.db` se crea automáticamente al ejecutar `app.py`.

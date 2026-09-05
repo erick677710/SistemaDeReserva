@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Minimarkets{% endblock %}
+
+{% block content %}
+<h1>Buscar minimarket</h1>
+
+<section class="grid two">
+    {% for market in minimarkets %}
+        <article class="card">
+            <h2>{{ market.nombre }}</h2>
+            <p>📍 {{ market.direccion }}</p>
+            <p>🕒 {{ market.horario }}</p>
+
+            <a
+                class="button"
+                href="{{ url_for('minimarket_detalle', minimarket_id=market.id) }}"
+            >
+                Ver productos
+            </a>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}

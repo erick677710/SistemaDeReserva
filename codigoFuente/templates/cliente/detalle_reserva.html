@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Reserva #{{ reserva.id }}{% endblock %}
+
+{% block content %}
+<div class="page-head">
+    <div>
+        <p class="eyebrow">MI RESERVA</p>
+        <h1>Reserva #{{ reserva.id }}</h1>
+        <p>{{ reserva.minimarket }} · {{ reserva.fecha }}</p>
+    </div>
+
+    <span class="status large">{{ reserva.estado }}</span>
+</div>
+
+<div class="grid two">
+    <section class="card">
+        <h2>Productos</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cant.</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for detail in detalles %}
+                        <tr>
+                            <td>{{ detail.nombre }}</td>
+                            <td>{{ detail.cantidad }}</td>
+                            <td>Bs {{ '%.2f'|format(detail.subtotal) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total">
+            Total: Bs {{ '%.2f'|format(detalles|sum(attribute='subtotal')) }}
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Seguimiento</h2>
+
+        <div class="timeline">
+            {% for estado in estados %}
+                <div class="step {% if estado == reserva.estado %}current{% endif %}">
+                    <span></span>
+                    {{ estado }}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if reserva.estado == 'Rechazada' %}
+            <p class="danger">La reserva fue rechazada por el dependiente.</p>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

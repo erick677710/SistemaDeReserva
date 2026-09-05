@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel dependiente{% endblock %}
+
+{% block content %}
+<p class="eyebrow">DEPENDIENTE</p>
+<h1>Panel de control</h1>
+
+<section class="grid four">
+    <div class="stat card">
+        <strong>{{ stats.pendientes }}</strong>
+        <span>Pendientes</span>
+    </div>
+
+    <div class="stat card">
+        <strong>{{ stats.preparacion }}</strong>
+        <span>En preparación</span>
+    </div>
+
+    <div class="stat card">
+        <strong>{{ stats.listas }}</strong>
+        <span>Listas</span>
+    </div>
+
+    <div class="stat card">
+        <strong>{{ stats.entregadas }}</strong>
+        <span>Entregadas</span>
+    </div>
+</section>
+
+<section class="grid two">
+    <a class="card link-card" href="{{ url_for('reservas_dependiente') }}">
+        <h2>📦 Gestionar reservas</h2>
+        <p>Ver, aceptar, rechazar y actualizar estados.</p>
+    </a>
+
+    <a class="card link-card" href="{{ url_for('productos_dependiente') }}">
+        <h2>🛒 Gestionar productos</h2>
+        <p>Añadir, editar y eliminar productos.</p>
+    </a>
+</section>
+{% endblock %}

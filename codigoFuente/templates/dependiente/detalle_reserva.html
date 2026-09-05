@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestionar reserva #{{ reserva.id }}{% endblock %}
+
+{% block content %}
+<div class="page-head">
+    <div>
+        <p class="eyebrow">GESTIÓN</p>
+        <h1>Reserva #{{ reserva.id }}</h1>
+        <p>
+            Cliente: <strong>{{ reserva.cliente }}</strong>
+            · {{ reserva.cliente_email }}
+        </p>
+        <p>{{ reserva.minimarket }} · {{ reserva.fecha }}</p>
+    </div>
+
+    <span class="status large">{{ reserva.estado }}</span>
+</div>
+
+<div class="grid two">
+    <section class="card">
+        <h2>Pedido</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cant.</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for detail in detalles %}
+                        <tr>
+                            <td>{{ detail.nombre }}</td>
+                            <td>{{ detail.cantidad }}</td>
+                            <td>Bs {{ '%.2f'|format(detail.precio_unitario) }}</td>
+                            <td>Bs {{ '%.2f'|format(detail.subtotal) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="total">
+            Total: Bs {{ '%.2f'|format(detalles|sum(attribute='subtotal')) }}
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Acciones</h2>
+
+        {% if transiciones %}
+            {% for siguiente in transiciones %}
+                <form
+                    class="action-form"
+                    method="post"
+                    action="{{ url_for('cambiar_estado', reserva_id=reserva.id) }}"
+                    data-confirm="¿Seguro que quieres cambiar la reserva a '{{ siguiente }}'?"
+                >
+                    <input type="hidden" name="estado" value="{{ siguiente }}">
+
+                    {% if siguiente == 'Aceptada' %}
+                        <button type="submit">Aceptar reserva</button>
+                    {% elif siguiente == 'Rechazada' %}
+                        <button type="submit" class="danger-button">Rechazar reserva</button>
+                    {% elif siguiente == 'En preparación' %}
+                        <button type="submit">Iniciar preparación</button>
+                    {% elif siguiente == 'Lista' %}
+                        <button type="submit">Marcar como lista</button>
+                    {% elif siguiente == 'Entregada' %}
+                        <button type="submit">Marcar como entregada</button>
+                    {% endif %}
+                </form>
+            {% endfor %}
+        {% else %}
+            <p>Esta reserva no tiene más transiciones disponibles.</p>
+        {% endif %}
+
+        <hr>
+
+        <h3>Flujo</h3>
+        <p>Pendiente → Aceptada → En preparación → Lista → Entregada</p>
+    </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dependiente.js') }}"></script>
+{% endblock %}

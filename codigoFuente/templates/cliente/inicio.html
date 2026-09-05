@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio cliente{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <p class="eyebrow">CLIENTE</p>
+    <h1>Hola, {{ nombre }} 👋</h1>
+    <p>Busca un minimarket, elige productos y crea tu reserva.</p>
+
+    <div class="actions">
+        <a class="button" href="{{ url_for('minimarkets') }}">
+            Buscar minimarket
+        </a>
+        <a class="button secondary" href="{{ url_for('reservas_cliente') }}">
+            Mis reservas
+        </a>
+        <a class="button secondary" href="{{ url_for('perfil') }}">
+            Mi perfil
+        </a>
+    </div>
+</section>
+
+<section class="grid three">
+    <article class="card">
+        <h3>1. Buscar</h3>
+        <p>Selecciona un minimarket y consulta sus productos.</p>
+    </article>
+
+    <article class="card">
+        <h3>2. Reservar</h3>
+        <p>Selecciona cantidades, revisa el pedido y confirma.</p>
+    </article>
+
+    <article class="card">
+        <h3>3. Consultar</h3>
+        <p>Ve el estado hasta que la reserva sea entregada.</p>
+    </article>
+</section>
+{% endblock %}

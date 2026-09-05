@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Mis reservas{% endblock %}
+
+{% block content %}
+<h1>Mis reservas</h1>
+
+{% if reservas %}
+    <section class="card table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Minimarket</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for reserva in reservas %}
+                    <tr>
+                        <td>#{{ reserva.id }}</td>
+                        <td>{{ reserva.minimarket }}</td>
+                        <td>{{ reserva.fecha }}</td>
+                        <td>
+                            <span class="status">{{ reserva.estado }}</span>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('detalle_reserva_cliente', reserva_id=reserva.id) }}">
+                                Ver detalle
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% else %}
+    <section class="card center">
+        <p>Aún no tienes reservas.</p>
+        <a class="button" href="{{ url_for('minimarkets') }}">
+            Crear mi primera reserva
+        </a>
+    </section>
+{% endif %}
+{% endblock %}

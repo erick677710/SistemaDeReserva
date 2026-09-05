@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Reserva creada{% endblock %}
+
+{% block content %}
+<section class="success card center">
+    <div class="big">✓</div>
+
+    <p class="eyebrow">RESERVA CREADA</p>
+    <h1>Reserva #{{ reserva.id }}</h1>
+
+    <p>
+        Tu reserva fue creada correctamente y está
+        <strong>{{ reserva.estado }}</strong>.
+    </p>
+
+    <p>{{ reserva.minimarket }}</p>
+
+    <div class="actions center-actions">
+        <a
+            class="button"
+            href="{{ url_for('detalle_reserva_cliente', reserva_id=reserva.id) }}"
+        >
+            Consultar reserva
+        </a>
+
+        <a class="button secondary" href="{{ url_for('reservas_cliente') }}">
+            Mis reservas
+        </a>
+    </div>
+</section>
+{% endblock %}

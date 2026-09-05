@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Sistema de Reservas{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <a class="brand" href="{{ url_for('inicio') }}">
+        🛒 Sistema de Reservas
+    </a>
+
+    {% if session.get('usuario_id') %}
+        <nav>
+            {% if session.get('rol') == 'cliente' %}
+                <a href="{{ url_for('cliente_inicio') }}">Inicio</a>
+                <a href="{{ url_for('minimarkets') }}">Minimarkets</a>
+                <a href="{{ url_for('reservas_cliente') }}">Mis reservas</a>
+                <a href="{{ url_for('perfil') }}">Perfil</a>
+            {% else %}
+                <a href="{{ url_for('panel_dependiente') }}">Panel</a>
+                <a href="{{ url_for('reservas_dependiente') }}">Reservas</a>
+                <a href="{{ url_for('productos_dependiente') }}">Productos</a>
+            {% endif %}
+
+            <a class="logout" href="{{ url_for('logout') }}">
+                Cerrar sesión
+            </a>
+        </nav>
+    {% endif %}
+</header>
+
+<main class="container">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-list">
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    Proyecto educativo · Sistema de Reservas
+</footer>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
