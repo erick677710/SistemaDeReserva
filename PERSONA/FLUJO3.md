@@ -18,17 +18,16 @@ flowchart TD
 
     %% Crear reserva
     C6 --> C7[Productos del minimarket]
-
     C7 --> C8[Seleccionar productos]
     C8 --> C2[Crear reserva]
     C2 --> C9[Revisar pedido]
     C9 --> C10[Reserva creada]
 
     %% Otras opciones del cliente
-    C3 --> C12[Ver mis reservas]
-    C12 --> C13[Detalle de reserva]
+    C3 --> C11[Ver mis reservas]
+    C11 --> C12[Detalle de reserva]
 
-    C4 --> C14[Datos personales]
+    C4 --> C13[Datos personales]
 
     %% =========================
     %% FLUJO DEL DEPENDIENTE
