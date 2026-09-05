@@ -17,14 +17,12 @@ flowchart TD
     C1 --> C5[Cerrar sesión]
 
     %% Crear reserva
-    C2 --> C6[Seleccionar minimarket]
     C6 --> C7[Productos del minimarket]
 
     C7 --> C8[Seleccionar productos]
-    C8 --> C2[Reservar]
+    C8 --> C2[Crear reserva]
     C2 --> C9[Revisar pedido]
-    C9 --> C10[Crear reserva]
-    C10 --> C11[Reserva creada]
+    C9 --> C10[Reserva creada]
 
     %% Otras opciones del cliente
     C3 --> C12[Ver mis reservas]
