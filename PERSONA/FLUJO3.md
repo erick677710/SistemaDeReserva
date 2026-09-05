@@ -11,7 +11,7 @@ flowchart TD
     %% =========================
 
     C --> C1[Inicio]
-    C1 --> C2[Crear reserva]
+    C1 --> C6[Seleccionar minimarket]
     C1 --> C3[Mis reservas]
     C1 --> C4[Perfil]
     C1 --> C5[Cerrar sesión]
@@ -21,7 +21,8 @@ flowchart TD
     C6 --> C7[Productos del minimarket]
 
     C7 --> C8[Seleccionar productos]
-    C8 --> C9[Revisar pedido]
+    C8 --> C2[Reservar]
+    C2 --> C9[Revisar pedido]
     C9 --> C10[Crear reserva]
     C10 --> C11[Reserva creada]
 
