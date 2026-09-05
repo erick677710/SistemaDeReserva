@@ -64,7 +64,6 @@ flowchart TD
 ```
 
 ## Descripción del flujo
-## Descripción del flujo
 
 ### Inicio de sesión
 
