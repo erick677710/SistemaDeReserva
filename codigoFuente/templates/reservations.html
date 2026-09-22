@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% block content %}
+<h1 class="title">RESERVAS</h1>
+{% for r in reservations %}
+<div class="card">
+  <div class="line"><strong>RESERVA {{ r.row.id }}</strong></div>
+  <div class="line">MINIMARKET {{ r.row.market_name }}</div>
+  <div class="line">FECHA {{ r.row.created_at }}</div>
+  <div class="line">UBICACION {{ r.row.location }}</div>
+  <div class="line">TOTAL = ${{ "%.2f"|format(r.total) }}</div>
+  <div class="line">ESTADO <span class="status status-{{ r.row.status }}">{{ r.row.status }}</span></div>
+  <div class="actions-3">
+    <a class="btn small" href="{{ url_for('reservation_detail', rid=r.row.id) }}">DETALLE</a>
+    {% if r.row.status == 'PENDIENTE' %}
+      <a class="btn small" href="{{ url_for('edit_reservation', rid=r.row.id) }}">EDITAR</a>
+      <a class="btn small" href="{{ url_for('cancel_reservation', rid=r.row.id) }}">CANCELAR</a>
+    {% endif %}
+  </div>
+</div>
+{% else %}
+<div class="card center">NO HAY RESERVAS</div>
+{% endfor %}
+<a class="btn" href="{{ url_for('inicio') }}">VOLVER AL INICIO</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title" style="font-size:44px">DETALLE RESERVA</h1>
+<div class="card">
+  <div class="line">RESERVA {{ reservation.row.id }}</div>
+  <div class="line">MINIMARKET {{ reservation.row.market_name }}</div>
+  <div class="line">FECHA {{ reservation.row.created_at }}</div>
+  <div class="line">UBICACION {{ reservation.row.location }}</div>
+  {% for item in reservation["items"] %}
+    <div class="line">
+      {{ item.product_name }}
+      {{ item.quantity }}
+      X — ${{ "%.2f"|format(item.quantity * item.price) }}
+    </div>
+  {% endfor %}
+
+  <div class="line">TOTAL ${{ "%.2f"|format(reservation.total) }}</div>
+
+  <div class="line">
+    ESTADO
+    <span class="status status-{{ reservation.row.status }}">{{ reservation.row.status }}</span>
+  </div>
+
+</div>
+<a class="btn" href="{{ url_for('inicio') }}">VOLVER AL INICIO</a>
+{% endblock %}

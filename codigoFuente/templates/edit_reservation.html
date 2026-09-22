@@ -1,0 +1,79 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="title">EDITAR RESERVA</h1>
+
+<div class="subtitle">{{ reservation.row.market_name }}</div>
+
+<form method="post">
+  <label class="form-label">PRODUCTO</label>
+  <select
+    class="select {% if error and 'PRODUCTO' in error %}invalid{% endif %}"
+    name="product_id">
+    
+    <option value="">PRODUCTO</option> 
+
+    {% for p in products %}
+      <option
+        value="{{ p.id }}"
+        {% if reservation["items"] and reservation["items"][0].product_id == p.id %}
+          selected
+        {% endif %}
+      >
+        {{ p.name }}
+      </option>
+    {% endfor %}
+
+  </select>
+
+  <label class="form-label">CANTIDAD</label>
+
+  <input
+    class="number {% if error and 'CANTIDAD' in error %}invalid{% endif %}"
+    type="number"
+    min="1"
+    name="quantity"
+    value="{{ reservation['items'][0].quantity if reservation['items'] else '' }}"
+  >
+
+  {% if error %}
+    <div class="error-box">
+      {{ error }}
+    </div>
+  {% endif %}
+
+  <button class="btn" type="submit">
+    GUARDAR RESERVA
+  </button>
+
+</form>
+
+<div class="form-label" style = "text-align:center;">
+  LISTA
+</div>
+
+<div class="list">
+
+  {% for item in reservation["items"] %}
+
+    <div class="form-label" style = "text-align:center;">
+      <span>{{ item.product_name }}</span>
+      <span>{{ item.quantity }} X</span>
+    </div>
+
+  {% endfor %}
+
+</div>
+
+<div class="form-label" style = "text-align:center;">
+  TOTAL ${{ "%.2f"|format(reservation.total) }}
+</div>
+
+<a class="btn" href="{{ url_for('reservations') }}">
+  VOLVER
+</a>
+
+{% endblock %}
+

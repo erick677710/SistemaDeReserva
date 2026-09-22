@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<h1 class="success-title">LA RESERVA HA SIDO<br>{{ 'ACEPTADA' if action == 'accept' else 'RECHAZADA' }}</h1>
+<div class="big-check"></div>
+<a class="btn" href="{{ url_for('admin_reservations') }}">VOLVER A RESERVAS</a>
+<a class="btn" href="{{ url_for('admin_panel') }}">VOLVER AL PANEL</a>
+{% endblock %}

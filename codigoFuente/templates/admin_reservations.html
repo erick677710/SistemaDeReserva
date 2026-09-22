@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">RESERVAS</h1>
+{% for r in reservations %}
+<div class="card">
+  <div class="line">
+    <strong>RESERVA {{ r.row.id }}</strong>
+  </div>
+  <div class="line">
+    FECHA {{ r.row.created_at }}
+  </div>
+
+  {% for item in r["items"] %}
+    <div class="line">
+      {{ item.product_name }}
+      ${{ "%.2f"|format(item.quantity * item.price) }}
+    </div>
+  {% endfor %}
+
+  <div class="line">
+    TOTAL = ${{ "%.2f"|format(r.total) }}
+  </div>
+  <div class="line">
+    ESTADO
+    <span class="status status-{{ r.row.status }}">
+      {{ r.row.status }}
+    </span>
+  </div>
+
+  {% if r.row.status == 'PENDIENTE' %}
+    <div class="actions-2">
+      <form
+        method="post"
+        action="{{ url_for('admin_reservation_action', rid=r.row.id, action='accept') }}"
+      >
+        <button class="btn small" type="submit">
+          ACEPTAR
+        </button>
+      </form>
+
+      <form
+        method="post"
+        action="{{ url_for('admin_reservation_action', rid=r.row.id, action='reject') }}"
+      >
+        <button class="btn small" type="submit">
+          RECHAZAR
+        </button>
+      </form>
+    </div>
+
+  {% endif %}
+
+</div>
+
+{% endfor %}
+
+<a class="btn" href="{{ url_for('admin_panel') }}">
+  VOLVER AL PANEL
+</a>
+
+{% endblock %}

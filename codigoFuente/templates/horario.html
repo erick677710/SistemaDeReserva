@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="title">HORARIOS</h1>
+
+<div class="subtitle">{{ market.name }}</div>
+
+<div class="horario">
+
+  <div class="horario-row">
+    <span>LUNES</span>
+    <span>{{ market.mon }}</span>
+  </div>
+
+  <div class="horario-row">
+    <span>MARTES</span>
+    <span>{{ market.tue }}</span>
+  </div>
+
+  <div class="horario-row">
+    <span>MIERCOLES</span>
+    <span>{{ market.wed }}</span>
+  </div>
+
+  <div class="horario-row">
+    <span>JUEVES</span>
+    <span>{{ market.thu }}</span>
+  </div>
+
+  <div class="horario-row">
+    <span>VIERNES</span>
+    <span>{{ market.fri }}</span>
+  </div>
+
+</div>
+
+<a
+  class="btn"
+  href="{{ url_for('markets', market_id=market.id) }}"
+  >
+  VOLVER A SELECCIONAR MINIMARKET
+</a>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block content %}
+<h1 class="title">GESTIONAR<br>PRODUCTOS</h1>
+<form method="post">
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>PRODUCTO</th><th>CANTIDAD</th><th>PRECIO</th></tr></thead>
+      <tbody>
+      {% for p in products %}
+        <tr>
+          <td>{{ p.name }}</td>
+          <td><input class="input-inline" type="number" min="0" name="stock_{{ p.id }}" value="{{ p.stock }}"></td>
+          <td><input class="input-inline" type="number" step="0.01" min="0" name="price_{{ p.id }}" value="{{ '%.2f'|format(p.price) }}"></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <button class="btn" type="submit">GUARDAR CAMBIOS</button>
+</form>
+<a class="btn" href="{{ url_for('admin_panel') }}">VOLVER</a>
+{% endblock %}

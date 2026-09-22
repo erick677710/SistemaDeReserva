@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="success-title">
+  RESERVA CREADA<br>CON EXITO
+</h1>
+
+<div class="big-check"></div>
+
+<a class="btn" href="{{ url_for('reservations') }}">
+  VER MIS RESERVAS
+</a>
+
+{% if reservation %} <a class="btn" href="{{ url_for('reservation_detail', rid=reservation.row.id) }}">
+DETALLE RESERVA </a>
+{% endif %}
+
+<a class="btn" href="{{ url_for('inicio') }}">
+  VOLVER AL INICIO
+</a>
+
+{% endblock %}

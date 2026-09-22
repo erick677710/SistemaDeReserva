@@ -1,0 +1,291 @@
+:root{
+  --red:#D8383A;
+  --navy:#1C263B;
+  --cream:#FDFBF6;
+  --yellow:#F9B42D;
+  --green:#22C7B7;
+  --white:#fff;
+  --text:#060606;
+}
+
+*{box-sizing:border-box
+}
+/* detalles de html */
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--red);color:var(--white)}
+/* pantalla completa */
+body{
+  min-height:100vh
+}
+/* cuadrado */
+.screen{
+  width:90%;
+  min-height:100vh;
+  margin:0 auto;
+  padding-top:70px;
+  padding-right:42px;
+  padding-bottom:48px;
+  padding-left:42px;
+  background:var(--red)}
+
+  /*titulos*/
+.title{
+  margin:0 0 8px;
+  text-align:center;
+  font-size:clamp(44px,8vw,68px);
+  font-weight:300;
+}
+
+/*subtitulo*/
+.subtitle{
+  text-align:center;
+  font-size:30px;
+  font-weight:400;
+  margin:-22px 0 8px
+}
+
+/*label*/
+.form-label{
+  display:block;
+  font-size:30px;
+  margin:0 0 18px
+}
+
+/* input select input numero*/
+.field,.select,.number{
+  width:100%;
+  height:64px;
+  border:0;
+  border-radius:8px;
+  background:var(--cream);
+  padding-right:20px;
+  padding-left:20px;
+  font-size:24px;
+  color:#222;
+  outline:none;
+  margin:0 0 18px
+}
+
+
+
+/* original */
+.select{
+  appearance:auto
+}
+
+/*errorsito*/
+.field.invalid,.select.invalid,.number.invalid{
+  background:var(--yellow);
+  outline:2px solid #f0a000
+}
+
+/* input dentro del formulario */
+.field + .form-label{
+  margin-top:24px
+}
+
+/*botonsito*/
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:100px;
+  margin:18px 0;
+  border:0;
+  border-radius:8px;
+  background:var(--navy);
+  color:var(--white);
+  font-size:30px;
+  font-weight:400;
+  text-decoration:none;
+  cursor:pointer;
+  padding:12px 18px;
+  text-align:center
+}
+.btn-error {
+  background: var(--yellow);
+  color: var(--text);
+}
+/*botoncito de la reserva*/
+.btn.small{
+  min-height:54px;
+  font-size:20px;
+  margin:8px 0;
+  background:var(--green);
+  color:var(--white);
+}
+
+/*errores */
+.error-box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-height:150px;
+  margin-top:18px;
+  padding:20px;
+  border-radius:8px;
+  background:var(--navy);
+  font-size:27px;
+  line-height:1.35
+}
+
+/*ERRORSITO del selector*/
+.error-select{
+  background:var(--yellow);
+  color:white;
+  border-radius:8px;
+  padding:20px;
+  font-size:22px;
+  text-align:center
+}
+
+/*icono de bien hecho*/
+.big-check{
+  width:220px;
+  height:220px;
+  margin:18px auto 30px;
+  border:12px solid var(--green);
+  border-radius:50%;
+  position:relative
+}
+
+.big-check:after{
+  content:"";
+  position:absolute;
+  width:82px;
+  height:42px;
+  border-left:12px solid var(--green);
+  border-bottom:12px solid var(--green);
+  transform:rotate(-45deg);
+  left:57px;
+  top:62px
+}
+/*titulo de éxito*/
+.success-title{
+  font-size:42px;
+  line-height:1.05;
+  text-align:center;
+  font-weight:300
+}
+/*tarjeta*/
+.card{
+  background:var(--navy);
+  border-radius:8px;
+  padding:20px;
+  margin:16px 0;
+}
+/*texto tarejta*/
+.card .line{
+  font-size:21px;
+  margin:5px 0
+}
+.card .label{
+  font-size:18px
+}
+
+.list{
+  margin:0 auto;
+  max-width:360px
+}
+
+/*aceptada*/
+.actions-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px
+}
+/*con aceptada*/
+.actions-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px
+}
+
+.status{
+  font-weight:bold
+}
+
+.status-PENDIENTE{
+  color:#ffd166
+}
+
+.status-ACEPTADA{
+  color:#22c55e
+}
+
+.status-RECHAZADA,.status-CANCELADA{
+  color:#ff8b8b
+}
+
+
+.horario{
+  width:90%;
+  margin:0 auto;
+  padding-top:10px;
+  padding-right:20px;
+  padding-bottom:10px;
+  padding-left:20px;
+  background:var(--navy);
+  border-radius:8px;
+}
+
+.horario-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  font-size:20px;
+  padding:4px 0
+}
+
+.table-wrap{
+  overflow:auto
+}
+ /*tabla para el celular*/
+table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0 8px;
+  font-size:16px
+}
+
+td,th{
+  padding:10px;
+  text-align:left
+}
+
+table thead th{
+  font-size:30px
+}
+
+table tbody tr{
+  background:var(--navy)
+}
+
+table tbody td:first-child{
+  border-radius:12px 0 0 12px
+}
+
+table tbody td:last-child{
+  border-radius:0 12px 12px 0
+}
+
+.input-inline{
+  width:100%;
+  height:42px;
+  border:0;
+  border-radius:8px;
+  padding:0 8px
+}
+
+@media(max-width:520px){
+  .screen{padding:52px 24px 34px}
+  .title{font-size:46px}
+  .subtitle{font-size:25px}
+  .form-label{font-size:25px}
+  .btn{font-size:25px;min-height:72px}
+  .field,.select,.number{height:58px;font-size:20px}
+}

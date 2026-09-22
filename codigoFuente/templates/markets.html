@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+<select class="select" id="market_id">
+  <option value="">MINIMARKET</option>
+  {% for m in markets %}
+    <option value="{{ m.id }}">
+      {{ m.name }}
+    </option>
+  {% endfor %}
+</select>
+{% if error %}
+  <div class="error-box">{{ error }}</div>
+{% endif %}
+<a class="btn" id="horario-button" href="#">HORARIOS</a>
+<a class="btn" id="reservation-button" href="#">SELECCIONAR</a>
+<a class="btn" href="{{ url_for('inicio') }}">VOLVER</a>
+
+<script>
+
+  const marketSelect =
+    document.getElementById("market_id");
+
+  const horarioButton =
+    document.getElementById("horario-button");
+
+  const reservationButton =
+    document.getElementById("reservation-button");
+
+
+  function updateButtons() {
+
+    const marketId = marketSelect.value;
+
+
+    if (marketId) {
+
+ 
+      horarioButton.href =
+        "/horario/" + marketId;
+
+
+      reservationButton.href =
+        "/reservation?market_id=" + marketId;
+
+      horarioButton.classList.remove("btn-error");
+      reservationButton.classList.remove("btn-error");
+      horarioButton.style.pointerEvents = "auto";
+      reservationButton.style.pointerEvents = "auto";
+    
+
+    }
+
+    else {
+
+      // No hay minimarket seleccionado
+      horarioButton.href = "#";
+      reservationButton.href = "#";
+
+
+      // Desactivar botones
+      horarioButton.style.pointerEvents = "none";
+      reservationButton.style.pointerEvents = "none";
+
+      horarioButton.classList.add("btn-error");
+      reservationButton.classList.add("btn-error");
+
+    }
+
+  }
+
+
+  // Detectar cambio de minimarket
+  marketSelect.addEventListener(
+    "change",
+    updateButtons
+  );
+
+
+  // Estado inicial
+  updateButtons();
+
+</script>
+
+{% endblock %}

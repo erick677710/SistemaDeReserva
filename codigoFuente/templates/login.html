@@ -1,45 +1,12 @@
-{% extends 'base.html' %}
-
-{% block title %}Iniciar sesión{% endblock %}
-
-{% block content %}
-<section class="auth card">
-    <h1>Iniciar sesión</h1>
-
-    <form id="form-login" method="post">
-        <label for="email">Correo</label>
-        <input
-            id="email"
-            type="text"
-            name="email"
-            placeholder="usuario@correo.com"
-            required
-        >
-
-        <label for="password">Contraseña</label>
-        <input
-            id="password"
-            type="password"
-            name="password"
-            required
-        >
-
-        <button type="submit">Ingresar</button>
-    </form>
-
-    <p>
-        ¿No tienes cuenta?
-        <a href="{{ url_for('registro') }}">Registrarte como cliente</a>
-    </p>
-
-    <div class="demo">
-        <strong>Dependiente demo</strong><br>
-        dependiente@demo.com<br>
-        123456
-    </div>
-</section>
-{% endblock %}
-
-{% block scripts %}
-<script src="{{ url_for('static', filename='js/cliente.js') }}"></script>
+{% extends "base.html" %}{% block content %}
+<form method="post" novalidate>
+  <label class="form-label">USUARIO</label>
+  <input class="field {% if error %}invalid{% endif %}"  name="username" autocomplete="username" value="{{ request.form.get('username','') }}">
+  <label class="form-label">CONTRASEÑA</label>
+  <input class="field {% if error %}invalid{% endif %}" type="password" name="password" autocomplete="current-password">
+  {% if error %}
+  <label class="form-label">INGRESE SU USUARIO Y CONTRASEÑA CORRECTOS PORFAVOR</label>
+  {% endif %}
+  <button class="btn" type="submit">INICIAR SESION</button>
+</form>
 {% endblock %}

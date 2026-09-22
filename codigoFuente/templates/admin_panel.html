@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<h1 class="title" >PANEL DE<br>GESTION</h1>
+<div class="subtitle">
+  {{ market.name if market else 'MINIMARKET X' }}
+</div>
+<a class="btn" href="{{ url_for('admin_products') }}">GESTIONAR PRODUCTOS</a>
+<a class="btn" href="{{ url_for('admin_reservations') }}">GESTIONAR RESERVAS</a>
+<a class="btn" href="{{ url_for('logout') }}">CERRAR SESION</a>
+{% endblock %}
